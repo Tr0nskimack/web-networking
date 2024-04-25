@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getVendor } from 'mac-oui-lookup';
 import axios from 'axios';
 import { TbNetwork } from "react-icons/tb";
 import { CardTool } from './Components/CardTool'
@@ -53,6 +54,9 @@ const App = () => {
 
   ]
 
+  const vendor = getVendor('DC:2C:6E:90:34:FA');
+  console.log(vendor); // Output: VMware, Inc.
+
   const fetchPublicIP = async () => {
     try {
       const response = await axios.get('http://ip-api.com/json/?fields=61439');
@@ -82,13 +86,13 @@ const App = () => {
 
           <p className='text-letraP w-[800px] mt-5 text-[14px]'>Aqui encontrarás diversas utilidades y recursos diseñados para facilitar la gestión y optimización de redes informáticas. Estas herramientas abarcan desde programas de monitoreo y diagnóstico de red hasta aplicaciones para la configuración y seguridad de equipos interconectados.</p>
 
-          
+
         </header>
-          <div className='flex justify-around items-end px-5 mt-14'>
-            <span className='text-letraP font-bold text-[11px] '>Pais: {countryprovider}</span>
-            <h1 className='text-letraG text-4xl'>Tu ip es: {publicIpAddress}</h1>
-            <span className='text-letraP font-bold text-[11px] '>ISP Proveedor: {nameprovider}</span>
-          </div>
+        <div className='flex justify-around items-end px-5 mt-14'>
+          <span className='text-letraP font-bold text-[11px] '>Pais: {countryprovider}</span>
+          <h1 className='text-letraG text-4xl'>Tu ip es: {publicIpAddress}</h1>
+          <span className='text-letraP font-bold text-[11px] '>ISP Proveedor: {nameprovider}</span>
+        </div>
       </div>
 
       <div className='pl-20 pt-20'>
@@ -96,7 +100,7 @@ const App = () => {
           <h1 className='text-2xl font-semibold'>Herramientas</h1>
         </div>
         <div className='mt-3'>
-          <div className='grid grid-cols-4 gap-4'>
+          <div className='grid grid-cols-4 gap-8'>
             {
               utilidades.map((utilidad) => {
                 return (
