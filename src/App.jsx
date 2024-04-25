@@ -5,6 +5,7 @@ import { CardTool } from './Components/CardTool'
 const App = () => {
   const [publicIpAddress, setPublicIpAddress] = useState(null);
   const [nameprovider, setNameprovider] = useState(null)
+  const [countryprovider, setcountryProvider] = useState(null)
   const utilidades = [
     {
       nombre: "M Ip",
@@ -56,6 +57,7 @@ const App = () => {
       const response = await axios.get('http://ip-api.com/json/?fields=61439');
       setPublicIpAddress(response.data.query);
       setNameprovider(response.data.isp);
+      setcountryProvider(response.data.country);
 
     } catch (error) {
       console.error('Error fetching public IP:', error);
@@ -70,7 +72,7 @@ const App = () => {
   return (
     <div className='min-h-screen bg-fondo'>
       <div>
-        <header className='bg-negro h-[300px] pl-20 pt-20 flex flex-col'>
+        <header className='bg-negro h-[300px] pl-20 pt-20 flex flex-col shadow-green-500 shadow-sm'>
           <h1 className='text-letraG text-3xl '>Help Center</h1>
           <p className='text-letraP w-[800px] mt-5 text-[14px]'>Aqui encontrarás diversas utilidades y recursos diseñados para facilitar la gestión y optimización de redes informáticas. Estas herramientas abarcan desde programas de monitoreo y diagnóstico de red hasta aplicaciones para la configuración y seguridad de equipos interconectados.</p>
 
@@ -82,8 +84,8 @@ const App = () => {
 
           </div>
           <div className='flex justify-between px-5'>
-            <span className='text-letraP text-[11px] '>{nameprovider}</span>
-            <span className='text-letraP text-[11px] '>{nameprovider}</span>
+            <span className='text-letraP font-bold text-[11px] '>Pais: {countryprovider}</span>
+            <span className='text-letraP font-bold text-[11px] '>ISP Proveedor: {nameprovider}</span>
 
           </div>
         </header>
