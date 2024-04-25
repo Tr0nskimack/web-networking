@@ -12,7 +12,7 @@ export default {
         letraP: "#d8e1ed",
         letraB: "#d8e1ed",
         fondo: "#f0f4fc",
-        fondocard: "#f0f4fc",
+        fondocard: "#ffffff",
         letracardp: "#383638",
         minicard: "#383638"
 
