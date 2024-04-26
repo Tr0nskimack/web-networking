@@ -1,13 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
-
 import { TbNetwork } from "react-icons/tb";
 import { DataContext } from '../App';
+import { Link } from 'react-router-dom';
+
 
 
 
 
 export const Header = () => {
-  const {publicIpAddress, dataApi, nameprovider, countryprovider} = useContext(DataContext);
+  const { publicIpAddress, dataApi, nameprovider, countryprovider } = useContext(DataContext);
   /* console.log(dataApi) */
 
 
@@ -18,9 +19,11 @@ export const Header = () => {
 
       <div className="bg-negro h-[300px] flex flex-col shadow-green-500 shadow-sm">
         <header className="pl-20 pt-20 ">
-          <div className="flex items-center gap-2">
-            <TbNetwork color="green" size={36} />
-            <h1 className="text-letraG text-3xl">NetworkToolKit.com</h1>
+          <div >
+            <Link className="flex items-center gap-2" to={"/"}>
+              <TbNetwork color="green" size={36} />
+              <h1 className="text-letraG text-3xl">NetworkToolKit.com</h1>
+            </Link>
           </div>
 
           <p className="text-letraP w-[800px] mt-5 text-[14px]">

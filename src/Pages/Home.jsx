@@ -1,5 +1,4 @@
 import React from "react";
-import { getVendor } from "mac-oui-lookup";
 import { Helmet } from "react-helmet";
 import { CardTool } from "../Components/CardTool";
 
@@ -14,7 +13,7 @@ export const Home = () => {
     {
       nombre: "Mac Vendor",
       categoria: "Redes",
-      url: "#",
+      url: "/macvendor",
     },
     {
       nombre: "Calculadora de Ip",
@@ -37,30 +36,21 @@ export const Home = () => {
       url: "#",
     },
     {
-      nombre: "Convertidor de Mac",
+      nombre: "Mac IPV4 a IPV6",
       categoria: "Redes",
       url: "#",
     },
     {
-      nombre: "Red X",
+      nombre: "Converti",
       categoria: "Redes",
       url: "#",
     },
   ];
-
-  const vendor = getVendor("DC:2C:6E:90:34:FA");
-  console.log(vendor); // Output: VMware, Inc.
-
-  
-
   return (
     <div className="min-h-screen bg-fondo">
       {/* div header */}
-      {/* helmet */}
-
-      
-
       <div className="pl-20 pt-20">
+      {/* helmet */}
       <Helmet>
         <meta name="description" content="Home | NetworkToolKit.com" />
         <meta name="rating" content="General" />

@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { DataContext } from '../App';
 import { Helmet } from "react-helmet";
-
+import { Link } from 'react-router-dom';
+import { FiArrowLeft } from "react-icons/fi";
 
 export const MyIp = () => {
-  const dataApi = useContext(DataContext);
+  const { publicIpAddress, dataApi, nameprovider, countryprovider } = useContext(DataContext);
   /* console.log(dataApi) */
   const dataConexion = [
     { proveedor: "Network", valor: {} },
@@ -26,29 +27,38 @@ export const MyIp = () => {
       </Helmet>
       <div className=" pt-20 flex justify-center ">
         <div className="w-[1200px] h-[600px] bg-white p-3 rounded-2xl shadow-green-500 shadow-sm">
-          <header>
-            <h1 className="text-3xl font-bold py-2">My Ip</h1>
-            <hr />
+        <header className='flex items-center gap-2 '>
+            <Link to={"/"}><FiArrowLeft size={28} className='text-gray-200'/></Link>
+          
+            <h1 className="text-3xl font-bold py-2">My IP Detalles</h1>
           </header>
+            <hr />
           {/* content */}
-          <div className="mt-10 mx-10">
-            <div>
+          <div className="mt-10 mx-10 text-center">
+            
               <div className="grid grid-cols-3 gap-5">
-                <div>
-                  {Array.isArray(dataApi) && data.length > 0 ? (
-                    <ul>
-                      {dataApi.map((item) => (
-                        <li key={item.id}>{item.isp}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p>No hay datos disponibles</p>
-                  )}
-                </div>
+                
+                  
+                  <div>
+                    <p>Direccion Ip: {publicIpAddress} </p>
+                  </div>
+                  <div>
+                    <p>Nombre de Proveedor: {nameprovider}</p>
+                  </div>
+                  <div>
+                    <p>Pais: {countryprovider}</p>
+                  </div>
+                  
+                
+                
+                
+                
+                
+                
 
 
               </div>
-            </div>
+            
           </div>
         </div>
       </div>

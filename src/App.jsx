@@ -10,6 +10,7 @@ import { Header } from "./Components/Header";
 import { Footer } from "./Components/Footer";
 import { Home } from "./Pages/Home";
 import { MyIp } from "./Pages/MyIp";
+import { Macvendor } from "./Pages/Macvendor";
 
 
 export const DataContext = createContext();
@@ -64,7 +65,11 @@ const App = () => {
         {
           path:"/miip",
           element: <MyIp/>
-        }
+        },
+        {
+          path:"/macvendor",
+          element: <Macvendor/>
+        },
        
       ],
     },
